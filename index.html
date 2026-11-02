@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="IT Solution Koperasi Kampus - Solusi lengkap kebutuhan mahasiswa dan civitas akademika: minuman dingin, makanan ringan, ATK, fotokopi, dan layanan print tugas dengan harga terjangkau.">
+  <meta name="theme-color" content="#0f3b75">
+  <title>IT Solution - Koperasi Kampus Modern</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter (Modern Sans-Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- SITE HEADER / NAVBAR -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container" aria-label="Navigasi Utama">
+      <!-- Brand Logo -->
+      <a class="brand" href="#home" aria-label="IT Solution Beranda">
+        <div class="brand-logo-icon">
+          <span>IT</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">IT SOLUTION<span class="brand-dot">.</span></span>
+          <span class="brand-subtitle">KOPERASI KAMPUS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link active" href="#home">Beranda</a>
+        <a class="nav-link" href="#keunggulan">Tentang</a>
+        <a class="nav-link" href="#menu">Menu & Layanan</a>
+        <a class="nav-link" href="#reviews">Ulasan</a>
+        <a class="nav-link" href="#lokasi">Lokasi & Kontak</a>
+        <a class="button button-nav" href="#menu">
+          <span>Lihat Menu</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right Action Items (Cart Trigger & Mobile Hamburger) -->
+      <div class="nav-actions">
+        <button class="cart-trigger-btn" id="cartTriggerBtn" aria-label="Buka Keranjang Estimasi"
+          title="Estimasi Belanja">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" id="cartBadgeCount">0</span>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container hero-container">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>KOPERASI KAMPUS DIGITAL & TERPERCAYA</span>
+          </div>
+
+          <h1 class="hero-title">
+            Teman Setia Kebutuhan <span class="highlight-text">Kuliah & Harianmu.</span>
+          </h1>
+
+          <p class="hero-description">
+            Dari kopi penyemangat, camilan rehat, perlengkapan ATK, hingga layanan cetak tugas kilat. Semua serba
+            praktis, dekat di kampus, dan ramah kantong mahasiswa!
+          </p>
+
+          <div class="hero-cta-group">
+            <a class="button button-primary" href="#menu">
+              <span>Jelajahi Produk</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a class="button button-outline" href="#lokasi">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Cek Lokasi & Jam Buka</span>
+            </a>
+          </div>
+
+          <!-- Quick Live Status Banner -->
+          <div class="hero-status-card">
+            <div class="status-indicator-box">
+              <span class="status-ping" id="statusPing"></span>
+            </div>
+            <div class="status-text-info">
+              <span class="status-title" id="statusTitle">Memeriksa jam operasional...</span>
+              <span class="status-desc" id="statusDetail">Senin - Jumat · 07.30 - 17.00 WITA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Content -->
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="hero-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
+                alt="Aktivitas mahasiswa di kampus" class="hero-img" loading="eager">
+              <div class="hero-img-overlay"></div>
+            </div>
+
+            <!-- Floating Badge: Snack & Drink -->
+            <div class="floating-chip chip-left">
+              <div class="chip-icon bg-blue-subtle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <div class="chip-text">
+                <strong>Minuman Dingin & Kopi</strong>
+                <small>Mulai dari Rp4.000</small>
+              </div>
+            </div>
+
+            <!-- Floating Badge: Fast Print -->
+            <div class="floating-chip chip-right">
+              <div class="chip-icon bg-indigo-subtle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+              </div>
+              <div class="chip-text">
+                <strong>Print & ATK Tugas</strong>
+                <small>Mulai Rp500 / lbr</small>
+              </div>
+            </div>
+
+            <!-- Floating Badge: Rating -->
+            <div class="floating-stat-badge">
+              <span class="stat-star">★</span>
+              <span class="stat-score">4.9</span>
+              <span class="stat-label">Kepuasan Mahasiswa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHT STATS / VALUE PROPOSITION -->
+    <section class="value-section" id="keunggulan">
+      <div class="container">
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+            </div>
+            <div class="value-info">
+              <h3>Praktis & Bebas Antre</h3>
+              <p>Lokasi strategis di dalam lingkungan kampus, mudah dijangkau saat jeda kuliah.</p>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="value-info">
+              <h3>Harga Sahabat Kantong</h3>
+              <p>Daftar harga transparan dan ekonomis, disesuaikan untuk mahasiswa dan civitas kampus.</p>
+            </div>
+          </div>
+
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+            </div>
+            <div class="value-info">
+              <h3>Layanan Cetak Lengkap</h3>
+              <p>Print warna, hitam-putih, cetak sertifikat, jilid dokumen, hingga cetak stiker tersedia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU & PRODUCT CATALOG SECTION -->
+    <section class="section-padding menu-section" id="menu">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <div>
+            <span class="section-tag">KATALOG & PILIHAN TERBAIK</span>
+            <h2 class="section-title">Menu Koperasi & <span>Layanan Kampus</span></h2>
+          </div>
+          <p class="section-subtitle">
+            Cari jajanan, minuman dingin penghilang kantuk, perlengkapan kuliah, dan kebutuhan cetak tugasmu di sini.
+          </p>
+        </div>
+
+        <!-- Filter & Search Toolbar -->
+        <div class="menu-toolbar">
+          <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Kategori Produk">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+              Semua Produk (<span id="countAll">0</span>)
+            </button>
+            <button class="filter-btn" data-filter="minuman" role="tab" aria-selected="false">
+              Minuman Segar (<span id="countMinuman">0</span>)
+            </button>
+            <button class="filter-btn" data-filter="makanan" role="tab" aria-selected="false">
+              Snack & Makanan (<span id="countMakanan">0</span>)
+            </button>
+            <button class="filter-btn" data-filter="atk" role="tab" aria-selected="false">
+              ATK (<span id="countAtk">0</span>)
+            </button>
+            <button class="filter-btn" data-filter="jasa" role="tab" aria-selected="false">
+              Jasa Layanan (<span id="countJasa">0</span>)
+            </button>
+            <button class="filter-btn" data-filter="Brewasa" role="tab" aria-selected="false">
+              Brewasa (<span id="countBrewasa">0</span>)
+            </button>
+          </div>
+
+          <div class="toolbar-controls">
+            <!-- Search Input -->
+            <div class="search-input-wrapper">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="menuSearch" placeholder="Cari nama produk / layanan..."
+                aria-label="Cari produk di menu">
+              <button class="clear-search-btn" id="clearSearchBtn" aria-label="Hapus pencarian"
+                style="display: none;">&times;</button>
+            </div>
+
+            <!-- Price Sort Select -->
+            <div class="sort-select-wrapper">
+              <select id="sortSelect" aria-label="Urutkan harga">
+                <option value="default">Urutan Standar</option>
+                <option value="price-asc">Harga: Terendah</option>
+                <option value="price-desc">Harga: Tertinggi</option>
+                <option value="name-asc">Nama: A - Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="menu-grid" id="menuGrid" aria-live="polite">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <!-- Menu Bottom Info & Reference Note -->
+        <div class="menu-info-bar">
+          <div class="info-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>*Harga sesuai papan resmi IT Solution. Klik tombol <strong>+ Estimasi</strong> pada produk untuk
+              menghitung total belanjaanmu.</span>
+          </div>
+          <button class="button-text-sm" id="btnOpenReferencePhoto">
+            <span>Lihat Foto Papan Harga Asli</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALLOUT / BANNER: FAST PRINT & ATK -->
+    <section class="print-callout-section">
+      <div class="container">
+        <div class="print-callout-card">
+          <div class="print-callout-content">
+            <span class="callout-tag">LAYANAN AKADEMIK</span>
+            <h2 class="callout-title">Deadline Tugas Mendadak? <span>Kami Siap Bantu Cetak!</span></h2>
+            <p class="callout-desc">
+              Kirim file via flashdisk atau WhatsApp, langsung kami cetak dengan hasil rapi, tajam, dan cepat. Tersedia
+              juga layanan jilid lakban / spiral dan jilid makalah.
+            </p>
+            <ul class="callout-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Print Hitam Putih cuma <strong>Rp500</strong></span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Print Warna cuma <strong>Rp1.000</strong></span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>Cetak Sertifikat & Stiker cuma <strong>Rp3.000</strong></span>
+              </li>
+            </ul>
+            <div class="callout-actions">
+              <a class="button button-white" href="#lokasi">
+                <span>Datangi Lokasi Sekarang</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="print-callout-visual">
+            <img src="assets/foto-koperasi-signage.jpeg" alt="Perlengkapan ATK dan cetak" loading="lazy">
+            <div class="callout-glass-badge">
+              <span class="badge-icon">⚡</span>
+              <div>
+                <strong>Cepat & Rapi</strong>
+                <small>Bisa ditunggu untuk tugas kilat</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS & RATING SECTION -->
+    <section class="section-padding reviews-section" id="reviews">
+      <div class="container">
+        <!-- Review Section Header -->
+        <div class="section-header review-header-layout">
+          <div>
+            <span class="section-tag">TESTIMONI MAHASISWA & PENGUNJUNG</span>
+            <h2 class="section-title">Apa Kata Mereka Tentang <span>IT Solution?</span></h2>
+            <p class="section-subtitle">Pengalaman nyata dari teman-teman kampus yang berbelanja dan mencetak tugas.</p>
+          </div>
+
+          <!-- Overall Rating Summary Card -->
+          <div class="rating-overview-card">
+            <div class="rating-number-col">
+              <div class="big-rating" id="averageScore">4.9</div>
+              <div class="star-rating-render" id="averageStars">★★★★★</div>
+              <span class="total-reviews-count" id="totalReviewsCount">Berdasarkan 8 ulasan</span>
+            </div>
+            <div class="rating-breakdown">
+              <div class="breakdown-row">
+                <span>5★</span>
+                <div class="breakdown-bar">
+                  <div class="breakdown-fill" style="width: 88%;"></div>
+                </div>
+                <span>88%</span>
+              </div>
+              <div class="breakdown-row">
+                <span>4★</span>
+                <div class="breakdown-bar">
+                  <div class="breakdown-fill" style="width: 12%;"></div>
+                </div>
+                <span>12%</span>
+              </div>
+              <div class="breakdown-row">
+                <span>3★</span>
+                <div class="breakdown-bar">
+                  <div class="breakdown-fill" style="width: 0%;"></div>
+                </div>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Controls & Action -->
+        <div class="review-toolbar">
+          <div class="review-filter-pills" id="reviewFilterPills">
+            <button class="review-filter-btn active" data-filter="all">Semua Ulasan</button>
+            <button class="review-filter-btn" data-filter="5">5 Bintang ★</button>
+            <button class="review-filter-btn" data-filter="4">4 Bintang ★</button>
+          </div>
+
+          <button class="button button-primary-sm" id="btnOpenReviewModal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            <span>Tulis Ulasan Kamu</span>
+          </button>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="review-grid" id="reviewGrid">
+          <!-- Rendered dynamically by script.js with localStorage support -->
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section class="section-padding location-section" id="lokasi">
+      <div class="container">
+        <div class="location-container-card">
+          <div class="location-details">
+            <span class="section-tag">TEMUKAN KAMI</span>
+            <h2 class="section-title">Lokasi & <span>Jam Layanan</span></h2>
+            <p class="location-desc">
+              Koperasi IT Solution berada di area kampus yang mudah diakses dari semua fakultas. Mampir untuk santai
+              atau penuhi kebutuhan tugasmu!
+            </p>
+
+            <!-- Address Card with Copy Action -->
+            <div class="info-block">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="info-body">
+                <strong>Alamat Koperasi IT Solution</strong>
+                <p id="fullAddressText">Gedung Kampus IT Solution, Lantai 1 (Dekat Koridor Utama & Student Center), Area
+                  Kampus.</p>
+                <button class="btn-copy-address" id="btnCopyAddress" title="Klik untuk salin alamat">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Salin Alamat</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Hours Block -->
+            <div class="info-block">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+              </div>
+              <div class="info-body">
+                <strong>Waktu Operasional</strong>
+                <p>Senin – Jumat: 07.30 – 17.00 WITA</p>
+                <small class="muted-schedule">Sabtu, Minggu & Hari Libur Nasional: Tutup</small>
+              </div>
+            </div>
+
+            <!-- Contact Block -->
+            <div class="info-block">
+              <div class="info-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+              </div>
+              <div class="info-body">
+                <strong>Kontak & WhatsApp Koperasi</strong>
+                <p>Ada pertanyaan ketersediaan stok atau file print? Hubungi admin koperasi.</p>
+                <a href="https://wa.me/6281234567890?text=Halo%20Admin%20IT%20Solution%2C%20mau%20tanya%20seputar%20layanan%20koperasi"
+                  target="_blank" rel="noopener" class="btn-whatsapp-direct">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.99.54 1.787.819 2.802.819l.006-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.78-5.766zm9.969 5.766c0 5.502-4.478 9.98-9.975 9.98-1.745 0-3.385-.45-4.821-1.239l-5.184 1.359 1.385-5.053c-.888-1.503-1.38-3.262-1.38-5.047 0-5.502 4.478-9.98 9.975-9.98 5.497 0 9.975 4.478 9.975 9.98z" />
+                  </svg>
+                  <span>Chat WhatsApp Admin</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Action Link to Maps -->
+            <div class="location-actions">
+              <a class="button button-primary"
+                href="https://www.google.com/maps/search/?api=1&query=IT+Solution+Koperasi+Kampus" target="_blank"
+                rel="noopener">
+                <span>Buka Rute di Google Maps</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Location Visual / Signage Photo -->
+          <div class="location-visual">
+            <div class="signage-wrapper">
+              <img src="assets/foto-koperasi-signage.jpeg" alt="Papan Nama Resmi IT Solution Koperasi"
+                class="signage-img" loading="lazy">
+              <div class="signage-glass-tag">
+                <span class="dot-live"></span>
+                <span>IT SOLUTION · PUSAT KOPERASI</span>
+              </div>
+            </div>
+
+            <div class="location-interactive-card">
+              <div class="location-quick-header">
+                <span class="quick-bullet">📍</span>
+                <strong>Akses Langsung Kampus</strong>
+              </div>
+              <p>Parkir kendaraan aman, dekat dengan gazebo belajar dan area mushola kampus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ESTIMATION / MINI SHOPPING CART DRAWER -->
+  <aside class="cart-drawer-overlay" id="cartOverlay" aria-hidden="true">
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Catatan Estimasi Belanja">
+      <div class="cart-drawer-header">
+        <div class="cart-header-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <h3>Catatan Estimasi Belanja</h3>
+        </div>
+        <button class="cart-close-btn" id="closeCartBtn" aria-label="Tutup keranjang estimasi">&times;</button>
+      </div>
+
+      <div class="cart-drawer-body" id="cartItemsList">
+        <!-- Rendered by script.js -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="cart-total-row">
+          <span>Perkiraan Total Bayar:</span>
+          <span class="cart-total-amount" id="cartTotalDisplay">Rp0</span>
+        </div>
+        <div class="cart-actions-row">
+          <button class="button button-outline-sm" id="btnClearCart">Kosongkan</button>
+          <a class="button button-primary-sm" id="btnShareCartWA" href="#" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.99.54 1.787.819 2.802.819l.006-.001c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.78-5.766zm9.969 5.766c0 5.502-4.478 9.98-9.975 9.98-1.745 0-3.385-.45-4.821-1.239l-5.184 1.359 1.385-5.053c-.888-1.503-1.38-3.262-1.38-5.047 0-5.502 4.478-9.98 9.975-9.98 5.497 0 9.975 4.478 9.975 9.98z" />
+            </svg>
+            <span>Kirim List ke WA</span>
+          </a>
+        </div>
+        <p class="cart-disclaimer">*Estimasi bayar di kasir koperasi, tanpa biaya admin tambahan.</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL: TULIS ULASAN BARU -->
+  <div class="modal-overlay" id="reviewModalOverlay" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 id="modalTitle">Beri Ulasan Koperasi</h3>
+        <button class="modal-close-btn" id="closeReviewModalBtn" aria-label="Tutup form ulasan">&times;</button>
+      </div>
+      <form id="addReviewForm" class="modal-body">
+        <div class="form-group">
+          <label for="reviewName">Nama / Inisial Kamu <span class="required">*</span></label>
+          <input type="text" id="reviewName" required placeholder="Contoh: Dimas Aditya" maxlength="40">
+        </div>
+
+        <div class="form-group">
+          <label for="reviewRole">Status Civitas <span class="required">*</span></label>
+          <select id="reviewRole" required>
+            <option value="Mahasiswa">Mahasiswa</option>
+            <option value="Dosen">Dosen</option>
+            <option value="Staf Kampus">Staf Kampus</option>
+            <option value="Pengunjung Umum">Pengunjung Umum</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Beri Nilai Bintang <span class="required">*</span></label>
+          <div class="star-rating-input" id="starRatingInput">
+            <span class="star-btn" data-value="1">★</span>
+            <span class="star-btn" data-value="2">★</span>
+            <span class="star-btn" data-value="3">★</span>
+            <span class="star-btn" data-value="4">★</span>
+            <span class="star-btn active" data-value="5">★</span>
+          </div>
+          <span class="rating-feedback-text" id="ratingFeedbackText">5 Bintang - Sangat Memuaskan!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewText">Kesan & Pesan <span class="required">*</span></label>
+          <textarea id="reviewText" required rows="3"
+            placeholder="Ceritakan pengalamanmu belanja atau mencetak tugas di IT Solution..."
+            maxlength="200"></textarea>
+          <div class="char-counter"><span id="charCount">0</span>/200 karakter</div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="button button-outline-sm" id="btnCancelReview">Batal</button>
+          <button type="submit" class="button button-primary-sm">Kirim Ulasan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: PREVIEW PAPAN HARGA ASLI -->
+  <div class="modal-overlay" id="photoModalOverlay" aria-hidden="true">
+    <div class="modal-dialog modal-photo-dialog" role="dialog" aria-modal="true" aria-label="Papan Harga Asli">
+      <div class="modal-header">
+        <h3>Daftar Harga Resmi Koperasi</h3>
+        <button class="modal-close-btn" id="closePhotoModalBtn" aria-label="Tutup foto">&times;</button>
+      </div>
+      <div class="modal-body photo-body">
+        <img src="assets/daftar-harga.jpeg" alt="Daftar Harga Resmi IT Solution" class="price-list-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING SCROLL TO TOP BUTTON -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Kembali ke atas halaman" title="Ke Atas">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-top-grid">
+      <!-- Col 1: Brand & Bio -->
+      <div class="footer-col footer-col-brand">
+        <a class="brand brand-footer" href="#home">
+          <div class="brand-logo-icon">
+            <span>IT</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">IT SOLUTION<span class="brand-dot">.</span></span>
+            <span class="brand-subtitle">KOPERASI KAMPUS</span>
+          </div>
+        </a>
+        <p class="footer-description">
+          Koperasi kampus terpercaya penyedia kebutuhan harian mahasiswa, konsumsi segar, alat tulis kantor, dan jasa
+          percetakan dokumen dengan prinsip kebersamaan dan pelayanan terbaik.
+        </p>
+        <div class="footer-badges">
+          <span class="badge-mini">#BanggaKoperasi</span>
+          <span class="badge-mini">#KoperasiKampus</span>
+          <span class="badge-mini">#SolusiMahasiswa</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Nav Links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigasi Halaman</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#home">Beranda Utama</a></li>
+          <li><a href="#keunggulan">Tentang Koperasi</a></li>
+          <li><a href="#menu">Katalog & Layanan</a></li>
+          <li><a href="#reviews">Rating & Ulasan</a></li>
+          <li><a href="#lokasi">Lokasi & Kontak</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Product Categories -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Kategori Produk</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#menu" class="filter-link" data-filter="minuman">Minuman Dingin & Kopi</a></li>
+          <li><a href="#menu" class="filter-link" data-filter="makanan">Snack & Makanan Ringan</a></li>
+          <li><a href="#menu" class="filter-link" data-filter="atk">Alat Tulis & Kertas</a></li>
+          <li><a href="#menu" class="filter-link" data-filter="atk">Print Hitam Putih / Warna</a></li>
+          <li><a href="#menu" class="filter-link" data-filter="atk">Jilid & Cetak Sertifikat</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Operational & Quick Help -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Layanan Pengunjung</h4>
+        <div class="footer-schedule-box">
+          <div class="schedule-line">
+            <span class="day">Senin - Jumat:</span>
+            <span class="time">07.30 - 17.00 WITA</span>
+          </div>
+          <div class="schedule-line">
+            <span class="day">Sabtu - Minggu:</span>
+            <span class="time closed">Tutup / Libur</span>
+          </div>
+        </div>
+        <p class="footer-note">Ada pertanyaan pengadaan atau layanan cetak khusus? Hubungi petugas di kasir koperasi.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="container footer-bottom-bar">
+      <p class="copyright-text">
+        &copy; <span id="currentYear"></span> <strong>IT Solution &mdash; Koperasi Kampus</strong>. Hak Cipta Dilindungi
+        Undang-Undang.
+      </p>
+      <div class="footer-bottom-links">
+        <a href="#home">Kembali ke Atas ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>
